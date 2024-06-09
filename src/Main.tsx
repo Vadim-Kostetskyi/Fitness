@@ -3,7 +3,7 @@ import { NavigationContainer } from "@react-navigation/native";
 // import { useEffect } from "react";
 
 // import { authStateChanged } from "../redux/auth/authOperations";
-import Router from "@/Router";
+import Router from "./Router";
 
 const Main = () => {
   // const dispatch = useDispatch();
@@ -14,10 +14,12 @@ const Main = () => {
   //   dispatch(authStateChanged());
   // }, []);
 
-  const routing = Router(false);
+  // const routing = Router(false);
 
   return (
-    <NavigationContainer independent={true}>{routing}</NavigationContainer>
+    <NavigationContainer independent={true}>
+      <Router isAuth={false} />
+    </NavigationContainer>
   );
 };
 

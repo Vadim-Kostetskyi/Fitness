@@ -10,12 +10,14 @@ import {
 } from "react-native";
 // import { useDispatch } from "react-redux";
 import React, { useState } from "react";
-import { useNavigation } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 import { useFonts } from "expo-font";
-import Input from "../components/Input";
+import Input from "@/src/components/Input";
 // import { loginDB } from "../redux/auth/authOperations";
-import { handleFocus, handleBlur } from "../helpers/focusing";
+import { handleFocus, handleBlur } from "@/src/helpers/focusing";
+import LoginButton from "@/src/components/LoginRegisterButton/insex";
 import { styles } from "./styles";
+import { StackNavigation } from "@/src/Router";
 
 const LoginScreen = () => {
   const [email, setMail] = useState("");
@@ -24,7 +26,14 @@ const LoginScreen = () => {
   const [passwordIsFocused, setPasswordIsFocused] = useState(false);
   const [secureText, setSecureText] = useState(true);
 
-  const navigation = useNavigation();
+  // const route = useRoute();
+  // const {
+  //   params: { saveEmail, savePassword },
+  // } = useRoute();
+  // console.log(route);
+
+  const navigation = useNavigation<StackNavigation>();
+
   // const dispatch = useDispatch();
 
   // const state = {
@@ -45,7 +54,6 @@ const LoginScreen = () => {
       onFocus: handleFocusMail,
       onBlur: handleBlurMail,
       isFocused: mailIsFocused,
-      stylesFocusedInput: styles.focusedInput,
     },
     {
       value: password,
@@ -54,7 +62,6 @@ const LoginScreen = () => {
       onFocus: handleFocusPassword,
       onBlur: handleBlurPassword,
       isFocused: passwordIsFocused,
-      stylesFocusedInput: styles.focusedInput,
       lastInputMargin: styles.lastInput,
       secureTextEntry: secureText,
       secureTextShow: setSecureText,
@@ -62,8 +69,8 @@ const LoginScreen = () => {
   ];
 
   const [fontsLoaded] = useFonts({
-    "Roboto-Medium": require("../assets/fonts/Roboto-Medium.ttf"),
-    "Roboto-Regular": require("../assets/fonts/Roboto-Regular.ttf"),
+    "Roboto-Medium": require("@/assets/fonts/Roboto-Medium.ttf"),
+    "Roboto-Regular": require("@/assets/fonts/Roboto-Regular.ttf"),
   });
 
   if (!fontsLoaded) {
@@ -78,7 +85,7 @@ const LoginScreen = () => {
 
   return (
     <ImageBackground
-      source={require("../assets/images/gim.jpg")}
+      source={require("@/assets/images/gim.jpg")}
       style={styles.background}
     >
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
@@ -110,7 +117,6 @@ const LoginScreen = () => {
                     onFocus={prop.onFocus}
                     onBlur={prop.onBlur}
                     isFocused={prop.isFocused}
-                    stylesFocusedInput={prop.stylesFocusedInput}
                     lastInputMargin={prop.lastInputMargin}
                     secureTextEntry={prop.secureTextEntry}
                     secureTextShow={prop.secureTextShow}
@@ -119,14 +125,16 @@ const LoginScreen = () => {
               })}
             </View>
           </KeyboardAvoidingView>
-          <TouchableOpacity
-            style={styles.button}
-            // onPress={hendleSubmit}
-          >
-            <Text style={styles.buttonText}>Войти</Text>
-          </TouchableOpacity>
+          <LoginButton title="Увійти" />
 
-          <TouchableOpacity onPress={() => navigation.navigate("Register")}>
+          <TouchableOpacity
+            onPress={() =>
+              navigation.navigate("Register", {
+                saveEmail: email,
+                savePassword: password,
+              })
+            }
+          >
             <Text style={styles.redirect}>
               Не маєш аккаунта? Зареєструватися
             </Text>

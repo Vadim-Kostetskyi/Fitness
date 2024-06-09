@@ -1,24 +1,61 @@
-import { TextInput, TouchableOpacity, Text, View } from "react-native";
+import React, { FC, Dispatch } from "react";
+import {
+  TextInput,
+  TouchableOpacity,
+  Text,
+  View,
+  DimensionValue,
+} from "react-native";
 import { useFonts } from "expo-font";
 import { AntDesign, MaterialIcons } from "@expo/vector-icons";
 
-import { styles } from "@/styles";
+import { styles } from "./styles";
 
-const Input = ({
+interface InputProps {
+  value: string;
+  onChangeText: Dispatch<React.SetStateAction<string>>;
+  placeholder: string;
+  onFocus: () => void;
+  onBlur: () => void;
+  isFocused?: boolean;
+  lastInputMargin?: { marginBottom: number };
+  textContentType?:
+    | "none"
+    | "password"
+    | "URL"
+    | "addressCity"
+    | "addressCityAndState"
+    | "addressState"
+    | "countryName"
+    | "creditCardNumber"
+    | "creditCardExpiration"
+    | "creditCardExpirationMonth";
+  secureTextEntry?: boolean;
+  addExercise?: () => void;
+  cancelNewExercise?: () => void;
+  marginBottom: number;
+  width: DimensionValue;
+  secureTextShow?: Dispatch<React.SetStateAction<boolean>>;
+}
+
+const Input: FC<InputProps> = ({
   value,
   onChangeText,
   placeholder,
   onFocus,
   onBlur,
+  // isFocused,
+  // lastInputMargin,
   textContentType,
   secureTextEntry,
   addExercise,
   cancelNewExercise,
   marginBottom,
   width,
+  // secureTextShow,
 }) => {
   const [fontsLoaded] = useFonts({
-    "Roboto-Regular": require("../assets/fonts/Roboto-Regular.ttf"),
+    "Roboto-Regular": require("@/assets/fonts/Roboto-Regular.ttf"),
   });
 
   if (!fontsLoaded) {
@@ -37,8 +74,11 @@ const Input = ({
         placeholderTextColor="#BDBDBD"
         onFocus={onFocus}
         onBlur={onBlur}
+        // isFocused={isFocused}
+        // lastInputMargin={lastInputMargin}
         textContentType={textContentType}
         secureTextEntry={secureTextEntry}
+        // secureTextShow={secureTextShow}
       />
       {addExercise && (
         <TouchableOpacity onPress={addExercise}>

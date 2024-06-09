@@ -10,20 +10,23 @@ import {
   ImageBackground,
 } from "react-native";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+// import { useDispatch } from "react-redux";
 import { useNavigation } from "@react-navigation/native";
-import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import * as ImagePicker from "expo-image-picker";
-import Input from "../components/Input";
-import { registerDB } from "../redux/auth/authOperations";
-import { storage } from "../config";
+// import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
+// import * as ImagePicker from "expo-image-picker";
+import Input from "@/src/components/Input";
+// import { registerDB } from "../redux/auth/authOperations";
+// import { storage } from "../config";
 import { AntDesign } from "@expo/vector-icons";
-import { handleFocus, handleBlur } from "../helpers/focusing";
+import { handleFocus, handleBlur } from "../../helpers/focusing";
+import RegisterButton from "@/src/components/LoginRegisterButton/insex";
+
 import { styles } from "./styles";
+import { StackNavigation } from "@/src/Router";
 
 const RegisterScreen = () => {
-  const navigation = useNavigation();
-  const dispatch = useDispatch();
+  const navigation = useNavigation<StackNavigation>();
+  // const dispatch = useDispatch();
 
   const [loginIsFocused, setLoginIsFocused] = useState(false);
   const [mailIsFocused, setMailIsFocused] = useState(false);
@@ -33,14 +36,14 @@ const RegisterScreen = () => {
   const [nickname, setNickname] = useState("");
   const [email, setMail] = useState("");
   const [password, setPassword] = useState("");
-  const [avatar, setAvatar] = useState(null);
+  // const [avatar, setAvatar] = useState(null);
 
-  const state = {
-    nickname,
-    userEmail: email,
-    password,
-    avatar,
-  };
+  // const state = {
+  //   nickname,
+  //   userEmail: email,
+  //   password,
+  //   avatar,
+  // };
 
   const handleFocusLogin = handleFocus(setLoginIsFocused);
   const handleBlurLogin = handleBlur(setLoginIsFocused);
@@ -57,7 +60,7 @@ const RegisterScreen = () => {
       onFocus: handleFocusLogin,
       onBlur: handleBlurLogin,
       isFocused: loginIsFocused,
-      stylesFocusedInput: styles.focusedInput,
+      // stylesFocusedInput: styles.focusedInput,
     },
     {
       value: email,
@@ -66,7 +69,7 @@ const RegisterScreen = () => {
       onFocus: handleFocusMail,
       onBlur: handleBlurMail,
       isFocused: mailIsFocused,
-      stylesFocusedInput: styles.focusedInput,
+      // stylesFocusedInput: styles.focusedInput,
     },
     {
       value: password,
@@ -75,63 +78,63 @@ const RegisterScreen = () => {
       onFocus: handleFocusPassword,
       onBlur: handleBlurPassword,
       isFocused: passwordIsFocused,
-      stylesFocusedInput: styles.focusedInput,
-      lastInputMargin: styles.lastInput,
-      secureTextEntry: secureText,
-      secureTextShow: setSecureText,
+      // stylesFocusedInput: styles.focusedInput,
+      // lastInputMargin: styles.lastInput,
+      // secureTextEntry: secureText,
+      // secureTextShow: setSecureText,
     },
   ];
 
-  const handleImagePicker = async () => {
-    const permissionResult =
-      await ImagePicker.requestMediaLibraryPermissionsAsync();
+  // const handleImagePicker = async () => {
+  //   const permissionResult =
+  //     await ImagePicker.requestMediaLibraryPermissionsAsync();
 
-    if (permissionResult.granted === false) {
-      Alert.alert("Permission to access storage is required!");
-      return;
-    }
+  //   if (permissionResult.granted === false) {
+  //     Alert.alert("Permission to access storage is required!");
+  //     return;
+  //   }
 
-    const imagePickerResult = await ImagePicker.launchImageLibraryAsync();
+  //   const imagePickerResult = await ImagePicker.launchImageLibraryAsync();
 
-    if (!imagePickerResult.canceled) {
-      const imageUri = imagePickerResult.assets[0].uri;
-      const response = await fetch(imageUri);
-      const file = await response.blob();
+  //   if (!imagePickerResult.canceled) {
+  //     const imageUri = imagePickerResult.assets[0].uri;
+  //     const response = await fetch(imageUri);
+  //     const file = await response.blob();
 
-      const date = new Date();
-      const storageRef = ref(storage, `images/${date}`);
-      let imageUrl;
-      await uploadBytes(storageRef, file);
+  //     const date = new Date();
+  //     const storageRef = ref(storage, `images/${date}`);
+  //     let imageUrl;
+  //     await uploadBytes(storageRef, file);
 
-      await getDownloadURL(ref(storage, `images/${date}`)).then((url) => {
-        imageUrl = url;
-      });
+  //     await getDownloadURL(ref(storage, `images/${date}`)).then((url) => {
+  //       imageUrl = url;
+  //     });
 
-      setAvatar(imageUrl);
-    }
-  };
+  //     setAvatar(imageUrl);
+  //   }
+  // };
 
-  const handleSubmit = () => {
-    setPassword("");
-    setMail("");
-    setNickname("");
-    dispatch(registerDB(state, dispatch));
-  };
+  // const handleSubmit = () => {
+  //   setPassword("");
+  //   setMail("");
+  //   setNickname("");
+  //   dispatch(registerDB(state, dispatch));
+  // };
 
   return (
     <ImageBackground
-      source={require("../assets/images/gim.jpg")}
+      source={require("@/assets/images/gim.jpg")}
       style={styles.background}
     >
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={[styles.container, { paddingTop: 92 }]}>
           <View style={styles.photoBox}>
-            {avatar && (
+            {/* {avatar && (
               <Image source={{ uri: avatar }} style={styles.wholeBox} />
-            )}
+            )} */}
             <TouchableOpacity
               style={styles.photoAdd}
-              onPress={handleImagePicker}
+              // onPress={handleImagePicker}
             >
               <AntDesign name="pluscircleo" size={25} color="#FF6C00" />
             </TouchableOpacity>
@@ -140,7 +143,9 @@ const RegisterScreen = () => {
             behavior={Platform.OS == "ios" ? "padding" : "height"}
             style={{ width: "100%" }}
           >
-            <Text style={styles.header}>Реєстрація</Text>
+            <Text style={[styles.header, { fontFamily: "Roboto-Medium" }]}>
+              Реєстрація
+            </Text>
             <View style={{ marginBottom: 40 }}>
               {props.map((prop, index) => {
                 return (
@@ -154,22 +159,24 @@ const RegisterScreen = () => {
                     onFocus={prop.onFocus}
                     onBlur={prop.onBlur}
                     isFocused={prop.isFocused}
-                    stylesFocusedInput={prop.stylesFocusedInput}
-                    lastInputMargin={prop.lastInputMargin}
-                    secureTextEntry={prop.secureTextEntry}
-                    secureTextShow={prop.secureTextShow}
+                    // lastInputMargin={prop.lastInputMargin}
+                    // secureTextEntry={prop.secureTextEntry}
+                    // secureTextShow={prop.secureTextShow}
                   />
                 );
               })}
             </View>
           </KeyboardAvoidingView>
-          <TouchableOpacity style={styles.button} onPress={handleSubmit}>
-            <Text style={styles.buttonText}>Зареєструватися</Text>
-          </TouchableOpacity>
+          <RegisterButton title="Зареєструватися" />
 
           <TouchableOpacity
             style={{ marginBottom: 45 }}
-            onPress={() => navigation.navigate("Login")}
+            onPress={() =>
+              navigation.navigate("Login", {
+                saveEmail: email,
+                savePassword: password,
+              })
+            }
           >
             <Text style={styles.redirect}>Вже є аккаунт? Увійти</Text>
           </TouchableOpacity>
