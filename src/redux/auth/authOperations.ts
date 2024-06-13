@@ -125,13 +125,7 @@ export const userProfileUpdate =
 
 export const loginDB =
   ({ userEmail, password }: loginDBProps) =>
-  async (
-    dispatch: (arg0: {
-      payload: any;
-      type: "auth/updateUserProfile" | "auth/authStateChanges";
-    }) => void,
-    getState: any
-  ) => {
+  async (dispatch: any, getState: any) => {
     try {
       const credentials = await signInWithEmailAndPassword(
         auth,

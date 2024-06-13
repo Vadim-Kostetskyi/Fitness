@@ -8,14 +8,14 @@ import {
   KeyboardAvoidingView,
   ImageBackground,
 } from "react-native";
-// import { useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import React, { useState } from "react";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { useFonts } from "expo-font";
-import Input from "@/src/components/Input";
-// import { loginDB } from "../redux/auth/authOperations";
+import Input from "@/src/Authentication/components/Input/Input";
+import { loginDB } from "@/src/redux/auth/authOperations";
 import { handleFocus, handleBlur } from "@/src/helpers/focusing";
-import LoginButton from "@/src/components/LoginRegisterButton/insex";
+import LoginButton from "@/src/Authentication/components/LoginRegisterButton";
 import { styles } from "./styles";
 import { StackNavigation } from "@/src/Router";
 
@@ -34,12 +34,12 @@ const LoginScreen = () => {
 
   const navigation = useNavigation<StackNavigation>();
 
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  // const state = {
-  //   userEmail: email,
-  //   password,
-  // };
+  const state = {
+    userEmail: email,
+    password,
+  };
 
   const handleFocusMail = handleFocus(setMailIsFocused);
   const handleBlurMail = handleBlur(setMailIsFocused);
@@ -77,11 +77,11 @@ const LoginScreen = () => {
     return null;
   }
 
-  // const hendleSubmit = () => {
-  //   setPassword("");
-  //   setMail("");
-  //   dispatch(loginDB(state, dispatch));
-  // };
+  const hendleSubmit = () => {
+    setPassword("");
+    setMail("");
+    loginDB(state);
+  };
 
   return (
     <ImageBackground

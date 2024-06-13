@@ -3,8 +3,8 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 // import HomeScreen from "./screens/HomeScreen";
 // import TrainingScreen from "./screens/TrainingScreen";
 // import NumberOfApproachesScreen from "./screens/NumberOfApproaches";
-import LoginScreen from "./screens/LoginScreen";
-import RegisterScreen from "./screens/RegisterScreen";
+import LoginScreen from "./Authentication/screens/LoginScreen";
+import RegisterScreen from "./Authentication/screens/RegisterScreen";
 import { FC } from "react";
 import { NavigationProp } from "@react-navigation/native";
 // import BicepsBackScreen from "./screens/BicepsBackScreen";
@@ -29,8 +29,8 @@ const Router: FC<RouterProps> = ({ isAuth }) => {
     <Stack.Navigator>
       {isAuth ? (
         <>
-          <Stack.Screen name="Register" component={RegisterScreen} />
           <Stack.Screen name="Login" component={LoginScreen} />
+          <Stack.Screen name="Register" component={RegisterScreen} />
         </>
       ) : (
         <>

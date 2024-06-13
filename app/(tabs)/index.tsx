@@ -5,6 +5,9 @@ import ParallaxScrollView from "@/components/ParallaxScrollView";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import Main from "../../src/Main";
+import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
+import { persistor, store } from "@/src/redux/store";
 
 export default function HomeScreen() {
   return (
@@ -52,25 +55,30 @@ export default function HomeScreen() {
     //     </ThemedText>
     //   </ThemedView>
     // </ParallaxScrollView>
-    <Main />
+    <Provider store={store}>
+      <PersistGate loading={null} persistor={persistor}>
+        <Main />
+      </PersistGate>
+      /
+    </Provider>
   );
 }
 
-const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    gap: 8,
-  },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
-  },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: "absolute",
-  },
-});
+// const styles = StyleSheet.create({
+//   titleContainer: {
+//     flexDirection: "row",
+//     alignItems: "center",
+//     gap: 8,
+//   },
+//   stepContainer: {
+//     gap: 8,
+//     marginBottom: 8,
+//   },
+//   reactLogo: {
+//     height: 178,
+//     width: 290,
+//     bottom: 0,
+//     left: 0,
+//     position: "absolute",
+//   },
+// });

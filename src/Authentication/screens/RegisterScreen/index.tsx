@@ -14,12 +14,12 @@ import { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 // import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 // import * as ImagePicker from "expo-image-picker";
-import Input from "@/src/components/Input";
+import Input from "../../components/Input/Input";
 // import { registerDB } from "../redux/auth/authOperations";
 // import { storage } from "../config";
 import { AntDesign } from "@expo/vector-icons";
-import { handleFocus, handleBlur } from "../../helpers/focusing";
-import RegisterButton from "@/src/components/LoginRegisterButton/insex";
+import { handleFocus, handleBlur } from "../../../helpers/focusing";
+import RegisterButton from "@/src/Authentication/components/LoginRegisterButton";
 
 import { styles } from "./styles";
 import { StackNavigation } from "@/src/Router";
