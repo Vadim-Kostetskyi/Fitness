@@ -1,3 +1,5 @@
+import React, { FC } from "react";
+import { NavigationProp } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import HomeScreen from "./Authentication/screens/HomeScreen";
@@ -5,8 +7,6 @@ import HomeScreen from "./Authentication/screens/HomeScreen";
 // import NumberOfApproachesScreen from "./screens/NumberOfApproaches";
 import LoginScreen from "./Authentication/screens/LoginScreen";
 import RegisterScreen from "./Authentication/screens/RegisterScreen";
-import { FC } from "react";
-import { NavigationProp } from "@react-navigation/native";
 // import BicepsBackScreen from "./screens/BicepsBackScreen";
 // import TricepsChestScreen from "./screens/TricepsChestScreen";
 
