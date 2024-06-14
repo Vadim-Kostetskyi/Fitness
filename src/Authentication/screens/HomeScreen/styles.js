@@ -9,6 +9,11 @@ export const styles = StyleSheet.create({
     minHeight: "100%",
   },
 
+  buttonBox: {
+    alignItems: "center",
+    paddingTop: 220,
+  },
+
   homeChoose: {
     width: 200,
     marginBottom: 100,

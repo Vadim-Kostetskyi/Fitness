@@ -8,7 +8,7 @@ const TrainingScreen = () => (
     source={require("../../../assets/images/training.jpg")}
     style={styles.background}
   >
-    <View style={{ alignItems: "center", paddingTop: 250 }}>
+    <View style={styles.buttonBox}>
       {buttonsDataTrainingScreen.map(({ text, screen, styles }) => (
         <Button text={text} screen={screen} styles={styles} />
       ))}

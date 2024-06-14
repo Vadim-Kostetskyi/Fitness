@@ -9,7 +9,7 @@ const HomeScreen = () => (
     source={require("../../../assets/images/main.jpg")}
     style={styles.background}
   >
-    <View style={{ alignItems: "center", paddingTop: 220 }}>
+    <View style={styles.buttonBox}>
       {buttonsDataHomeScreen.map(({ text, screen, styles }) => (
         <Button text={text} screen={screen} styles={styles} />
       ))}
