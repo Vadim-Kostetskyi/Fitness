@@ -59,7 +59,6 @@ export default function HomeScreen() {
       <PersistGate loading={null} persistor={persistor}>
         <Main />
       </PersistGate>
-      /
     </Provider>
   );
 }

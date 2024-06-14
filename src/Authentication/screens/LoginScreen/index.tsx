@@ -77,10 +77,11 @@ const LoginScreen = () => {
     return null;
   }
 
-  const hendleSubmit = () => {
+  const handleRegister = () => {
     setPassword("");
     setMail("");
-    loginDB(state);
+    //TODO fix TS error
+    dispatch(loginDB(state));
   };
 
   return (
@@ -125,7 +126,7 @@ const LoginScreen = () => {
               })}
             </View>
           </KeyboardAvoidingView>
-          <LoginButton title="Увійти" />
+          <LoginButton title="Увійти" handleSubmit={handleRegister} />
 
           <TouchableOpacity
             onPress={() =>
