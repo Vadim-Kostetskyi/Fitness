@@ -1,6 +1,6 @@
 import { styles } from "./styles";
 
-export const buttonsData = [
+export const buttonsDataHomeScreen = [
   {
     text: "Календар",
     screen: "Training",
