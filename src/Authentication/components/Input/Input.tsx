@@ -12,11 +12,11 @@ import { AntDesign, MaterialIcons } from "@expo/vector-icons";
 import { styles } from "./styles";
 
 interface InputProps {
-  value: string;
+  value?: string;
   onChangeText: Dispatch<React.SetStateAction<string>>;
   placeholder: string;
-  onFocus: () => void;
-  onBlur: () => void;
+  onFocus?: () => void;
+  onBlur?: () => void;
   isFocused?: boolean;
   lastInputMargin?: { marginBottom: number };
   textContentType?:
@@ -33,8 +33,8 @@ interface InputProps {
   secureTextEntry?: boolean;
   addExercise?: () => void;
   cancelNewExercise?: () => void;
-  marginBottom: number;
-  width: DimensionValue;
+  marginBottom?: number;
+  width?: DimensionValue;
   secureTextShow?: Dispatch<React.SetStateAction<boolean>>;
 }
 

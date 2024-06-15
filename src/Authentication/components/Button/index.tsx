@@ -5,13 +5,13 @@ import { StackNavigation } from "@/src/Router";
 
 interface ButtonProps {
   text: string;
-  screen: any;
+  screen?: any;
   styles: ViewStyle | ViewStyle[];
   navParams?: any;
-  marginBottom?: string;
-  marginRight?: string;
+  marginBottom?: number;
+  marginRight?: number;
   backgroundColor?: string;
-  width?: string;
+  width?: number;
   func?: any;
 }
 const Button: FC<ButtonProps> = ({

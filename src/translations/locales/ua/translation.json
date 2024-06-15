@@ -1,0 +1,14 @@
+{
+  "welcome": "Ласкаво просимо до React and react-i18next",
+  "newExercise": "Нова вправа",
+  "biceps": {
+    "standingDumbbellPress": "Прямий жим гантелей стоячи",
+    "dumbbellPressStandingInside": "Жим гантелей стоячи всередину",
+    "dumbbellBenchPressSittingDown": "Жим гантелі сидячи"
+  },
+  "back": {
+    "dumbbellPressOnAnInclineBench": "Жим гантелі на наклонній скам'ї",
+    "deadliftInTheIncline": "Тяга штанги в наклоні",
+    "deadlift": "Станова тяга"
+  }
+}
