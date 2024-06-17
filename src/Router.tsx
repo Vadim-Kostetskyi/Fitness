@@ -2,12 +2,12 @@ import React, { FC } from "react";
 import { NavigationProp } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import HomeScreen from "./Authentication/screens/HomeScreen";
-import TrainingScreen from "./Authentication/screens/TrainingScreen";
+import HomeScreen from "./screens/authentication/HomeScreen";
+import TrainingScreen from "./screens/authentication/TrainingScreen";
 // import NumberOfApproachesScreen from "./screens/NumberOfApproaches";
-import LoginScreen from "./Authentication/screens/LoginScreen";
-import RegisterScreen from "./Authentication/screens/RegisterScreen";
-import BicepsBackScreen from "./Authentication/screens/Exercises/BicepsBackScreen";
+import LoginScreen from "./screens/authentication/LoginScreen";
+import RegisterScreen from "./screens/authentication/RegisterScreen";
+import BicepsBackScreen from "./screens/exercises/BicepsBackScreen";
 // import TricepsChestScreen from "./screens/TricepsChestScreen";
 
 export type ScreenNames = [

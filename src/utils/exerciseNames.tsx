@@ -5,8 +5,8 @@ function ExerciseNames() {
 
   const bicepsExercises = {
     StandingDumbbellPress: t("biceps.standingDumbbellPress"),
-    StandingDumbbellPressInside: t("biceps.standingDumbbellPressInside"),
-    SeatedDumbbellPress: t("biceps.seatedDumbbellPress"),
+    StandingDumbbellPressInside: t("biceps.dumbbellPressStandingInside"),
+    SeatedDumbbellPress: t("biceps.dumbbellBenchPressSittingDown"),
   };
   const backExercises = {
     DumbbellPressOnAnInclineBench: t("back.dumbbellPressOnAnInclineBench"),

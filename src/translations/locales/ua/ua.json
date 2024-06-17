@@ -1,6 +1,10 @@
 {
   "welcome": "Ласкаво просимо до React and react-i18next",
   "newExercise": "Нова вправа",
+  "muscles": {
+    "biceps": "Біцепс",
+    "back": "Спина"
+  },
   "biceps": {
     "standingDumbbellPress": "Прямий жим гантелей стоячи",
     "dumbbellPressStandingInside": "Жим гантелей стоячи всередину",

@@ -12,10 +12,10 @@ import { useDispatch } from "react-redux";
 import React, { useState } from "react";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { useFonts } from "expo-font";
-import Input from "@/src/Authentication/components/Input/Input";
+import Input from "@/src/components/Input/Input";
 import { loginDB } from "@/src/redux/auth/authOperations";
 import { handleFocus, handleBlur } from "@/src/helpers/focusing";
-import LoginButton from "@/src/Authentication/components/LoginRegisterButton";
+import LoginButton from "@/src/components/LoginRegisterButton";
 import { styles } from "./styles";
 import { StackNavigation } from "@/src/Router";
 

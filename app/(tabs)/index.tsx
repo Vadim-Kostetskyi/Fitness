@@ -1,13 +1,13 @@
+import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
 import { Image, StyleSheet, Platform } from "react-native";
-
 import { HelloWave } from "@/components/HelloWave";
 import ParallaxScrollView from "@/components/ParallaxScrollView";
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
-import Main from "../../src/Main";
-import { Provider } from "react-redux";
-import { PersistGate } from "redux-persist/integration/react";
+import Main from "@/src/Main";
 import { persistor, store } from "@/src/redux/store";
+import "@/src/translations/i18n";
 
 export default function HomeScreen() {
   return (
