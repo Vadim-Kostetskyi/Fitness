@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
 
-function ExerciseNames() {
+const ExerciseNames = () => {
   const { t } = useTranslation();
 
   const bicepsExercises = {
@@ -15,6 +15,6 @@ function ExerciseNames() {
   };
 
   return [bicepsExercises, backExercises];
-}
+};
 
 export default ExerciseNames;
