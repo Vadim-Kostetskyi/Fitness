@@ -73,7 +73,6 @@ const NumberOfApproachesScreen = () => {
         })
       );
 
-      // Тепер ми чекаємо завершення дії setApproach перед викликом navigation.navigate
       // navigation.navigate(-1);
     } catch (error) {
       console.log(22222);
