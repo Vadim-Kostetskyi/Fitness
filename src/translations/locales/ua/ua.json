@@ -3,7 +3,9 @@
   "newExercise": "Нова вправа",
   "muscles": {
     "biceps": "Біцепс",
-    "back": "Спина"
+    "back": "Спина",
+    "triceps": "Трицепс",
+    "chest": "Груди"
   },
   "biceps": {
     "standingDumbbellPress": "Прямий жим гантелей стоячи",

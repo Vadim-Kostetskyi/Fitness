@@ -8,14 +8,15 @@ import TrainingScreen from "./screens/authentication/TrainingScreen";
 import LoginScreen from "./screens/authentication/LoginScreen";
 import RegisterScreen from "./screens/authentication/RegisterScreen";
 import BicepsBackScreen from "./screens/exercises/BicepsBackScreen";
-// import TricepsChestScreen from "./screens/TricepsChestScreen";
+import TricepsChestScreen from "./screens/exercises/TricepsChestScreen";
 
 export type ScreenNames = [
   "Register",
   "Login",
   "Home",
   "Training",
-  "BicepsBack"
+  "BicepsBack",
+  "TricepsChest"
 ];
 export type LoginRegisterParams = { saveEmail: string; savePassword: string };
 export type RootStackParamList = Record<
@@ -38,7 +39,7 @@ const Router: FC<RouterProps> = ({ isAuth }) => {
           <Stack.Screen name="Home" component={HomeScreen} />
           <Stack.Screen name="Training" component={TrainingScreen} />
           <Stack.Screen name="BicepsBack" component={BicepsBackScreen} />
-          {/* <AuthStack.Screen name="TricepsChest" component={TricepsChestScreen} /> */}
+          <Stack.Screen name="TricepsChest" component={TricepsChestScreen} />
 
           {/* <AuthStack.Screen
         name="NumberOfApproaches"

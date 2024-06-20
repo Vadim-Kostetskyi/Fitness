@@ -4,18 +4,18 @@ import BackgroundImage from "../../../../assets/images/biceps.jpg";
 import FirstExerciseImage from "../../../../assets/images/biceps.jpg";
 import SecondExerciseImage from "../../../../assets/images/back.jpg";
 
-const BicepsBackScreen = () => {
-  const [biceps, back] = Muscles();
+const TricepsChestScreen = () => {
+  const [chest, triceps] = Muscles();
 
   return (
     <ExerciseScreenLayout
       backgroundImg={BackgroundImage}
-      firstExercise={biceps}
-      secondExercise={back}
+      firstExercise={triceps}
+      secondExercise={chest}
       firstExerciseImage={FirstExerciseImage}
       secondExerciseImage={SecondExerciseImage}
     />
   );
 };
 
-export default BicepsBackScreen;
+export default TricepsChestScreen;
