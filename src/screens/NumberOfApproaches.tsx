@@ -57,9 +57,8 @@ const NumberOfApproachesScreen = () => {
 
   const changeApproach = (number: number) => {
     setApproach(number);
-    setAskWindow(
-      (prev) => prev.map((value, index) => (index === number ? true : false))
-      // [false, false, false]
+    setAskWindow((prev) =>
+      prev.map((value, index) => (index === number ? true : false))
     );
   };
 

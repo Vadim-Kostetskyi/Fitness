@@ -4,6 +4,10 @@ const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
 
 export const styles = StyleSheet.create({
+  center: {
+    marginLeft: "auto",
+    marginRight: "auto",
+  },
   background: {
     // sta
     justifyContent: "flex-end",
@@ -270,5 +274,21 @@ export const styles = StyleSheet.create({
     transform: "rotate(45deg)",
     backgroundColor: "#E8E8E8",
     borderRadius: 13.5,
+  },
+  exerciseName: {
+    width: halfScreenWidth,
+    // justifyContent: "center",
+    // alignItems: "center",
+    padding: 5,
+    marginBottom: 35,
+    borderRadius: 10,
+    backgroundColor: "red",
+  },
+  approach: {
+    justifyContent: "center",
+    width: 40,
+    height: 40,
+    backgroundColor: "red",
+    borderRadius: 10,
   },
 });

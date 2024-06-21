@@ -6,12 +6,12 @@ import { FC } from "react";
 interface ApproachButtonProps {
   func: () => void;
   text: string;
-  disable: boolean;
-  done: boolean;
-  longPress: () => void;
-  focus: () => void;
-  blur: () => void;
-  isFocused: boolean;
+  disable?: boolean;
+  done?: boolean;
+  longPress?: () => void;
+  focus?: () => void;
+  blur?: () => void;
+  isFocused?: boolean;
 }
 
 const ApproachButton: FC<ApproachButtonProps> = ({
