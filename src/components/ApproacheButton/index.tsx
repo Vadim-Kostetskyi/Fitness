@@ -1,11 +1,11 @@
 import { TouchableOpacity, Text } from "react-native";
 
-import { styles } from "./styles";
+import { styles } from "../styles";
 import { FC } from "react";
 
 interface ApproachButtonProps {
-  func: () => void;
-  text: string;
+  chooseExercise: () => void;
+  digit: number;
   disable?: boolean;
   done?: boolean;
   longPress?: () => void;
@@ -15,8 +15,8 @@ interface ApproachButtonProps {
 }
 
 const ApproachButton: FC<ApproachButtonProps> = ({
-  func,
-  text,
+  chooseExercise,
+  digit,
   disable,
   done,
   longPress,
@@ -35,11 +35,11 @@ const ApproachButton: FC<ApproachButtonProps> = ({
       onFocus={focus}
       onBlur={blur}
       activeOpacity={done ? 1 : 0.2}
-      onPress={!done ? func : undefined}
+      onPress={done ? undefined : chooseExercise}
       disabled={disable}
-      onLongPress={longPress}
+      onLongPress={done ? longPress : undefined}
     >
-      <Text style={{ textAlign: "center" }}>{text}</Text>
+      <Text style={{ textAlign: "center" }}>{digit}</Text>
     </TouchableOpacity>
   );
 };

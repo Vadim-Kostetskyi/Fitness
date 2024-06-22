@@ -8,11 +8,11 @@ import { styles } from "./styles";
 import { useTranslation } from "react-i18next";
 
 interface ExerciseScreenLayoutProps {
-  backgroundImg: string;
+  backgroundImg: any;
   firstExercise: string;
   secondExercise: string;
-  firstExerciseImage: string;
-  secondExerciseImage: string;
+  firstExerciseImage: any;
+  secondExerciseImage: any;
 }
 
 const ExerciseScreenLayout: FC<ExerciseScreenLayoutProps> = ({
@@ -22,9 +22,11 @@ const ExerciseScreenLayout: FC<ExerciseScreenLayoutProps> = ({
   firstExerciseImage,
   secondExerciseImage,
 }) => {
-  const [backgroundImage, setBackgroundImage] = useState(
-    require(backgroundImg)
-  );
+  console.log(123);
+
+  console.log(firstExercise);
+
+  const [backgroundImage, setBackgroundImage] = useState(backgroundImg);
   const [firstMuscle, setFirstMuscle] = useState(true);
   const [isAddNewExercise, setIsAddNewExercise] = useState(false);
   const [exercise, setExercise] = useState("");
@@ -40,20 +42,19 @@ const ExerciseScreenLayout: FC<ExerciseScreenLayoutProps> = ({
 
   const { t } = useTranslation();
 
-  const exerciseScreen =
-    (isFirstMuscle: boolean, exerciseImage: string) => () => {
-      setFirstMuscle(isFirstMuscle);
-      setBackgroundImage(require(exerciseImage));
-    };
+  const exerciseScreen = (isFirstMuscle: boolean, exerciseImage: any) => () => {
+    setFirstMuscle(isFirstMuscle);
+    setBackgroundImage(exerciseImage);
+  };
 
   const firstExerciseScreen = () => {
     setFirstMuscle(true);
-    setBackgroundImage(require(firstExerciseImage));
+    setBackgroundImage(firstExerciseImage);
   };
 
   const secondExerciseScreen = () => {
     setFirstMuscle(false);
-    setBackgroundImage(require(secondExerciseImage));
+    setBackgroundImage(secondExerciseImage);
   };
 
   const addFirstExercise = () => {

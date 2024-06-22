@@ -5,7 +5,7 @@ import SecondExerciseImage from "../../../../assets/images/back.jpg";
 import BackgroundImage from "../../../../assets/images/biceps.jpg";
 
 const BicepsBackScreen = () => {
-  const [biceps, back] = Muscles();
+  const { biceps, back } = Muscles();
 
   return (
     <ExerciseScreenLayout

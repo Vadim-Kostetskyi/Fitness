@@ -4,7 +4,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import HomeScreen from "./screens/authentication/HomeScreen";
 import TrainingScreen from "./screens/authentication/TrainingScreen";
-// import NumberOfApproachesScreen from "./screens/NumberOfApproaches";
+import NumberOfApproachesScreen from "./screens/NumberOfApproaches";
 import LoginScreen from "./screens/authentication/LoginScreen";
 import RegisterScreen from "./screens/authentication/RegisterScreen";
 import BicepsBackScreen from "./screens/exercises/BicepsBackScreen";
@@ -16,7 +16,8 @@ export type ScreenNames = [
   "Home",
   "Training",
   "BicepsBack",
-  "TricepsChest"
+  "TricepsChest",
+  "NumberOfApproaches"
 ];
 export type LoginRegisterParams = { saveEmail: string; savePassword: string };
 export type RootStackParamList = Record<
@@ -41,10 +42,10 @@ const Router: FC<RouterProps> = ({ isAuth }) => {
           <Stack.Screen name="BicepsBack" component={BicepsBackScreen} />
           <Stack.Screen name="TricepsChest" component={TricepsChestScreen} />
 
-          {/* <AuthStack.Screen
-        name="NumberOfApproaches"
-        component={NumberOfApproachesScreen}
-      /> */}
+          <Stack.Screen
+            name="NumberOfApproaches"
+            component={NumberOfApproachesScreen}
+          />
         </>
       ) : (
         <>

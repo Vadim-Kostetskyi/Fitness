@@ -8,7 +8,7 @@ const Muscles = () => {
   const triceps = t("muscles.triceps");
   const chest = t("muscles.chest");
 
-  return [biceps, back, triceps, chest];
+  return { biceps, back, triceps, chest };
 };
 
 export default Muscles;

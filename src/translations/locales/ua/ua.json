@@ -1,6 +1,9 @@
 {
   "welcome": "Ласкаво просимо до React and react-i18next",
   "newExercise": "Нова вправа",
+  "weight": "Вага",
+  "approach": "Підхід",
+  "numberOfRepeats": "К-сть повторів",
   "muscles": {
     "biceps": "Біцепс",
     "back": "Спина",

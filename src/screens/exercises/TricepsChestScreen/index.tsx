@@ -5,7 +5,7 @@ import FirstExerciseImage from "../../../../assets/images/biceps.jpg";
 import SecondExerciseImage from "../../../../assets/images/back.jpg";
 
 const TricepsChestScreen = () => {
-  const [chest, triceps] = Muscles();
+  const { chest, triceps } = Muscles();
 
   return (
     <ExerciseScreenLayout
