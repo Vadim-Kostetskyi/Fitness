@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import { useDispatch, useSelector } from "react-redux";
 import ApproachButton from "@/src/components/ApproacheButton";
-import { setNumberOfApproaches } from "../../redux/exercises/exercisesOperations.js";
+import { setNumberOfApproaches } from "@/src/redux/exercises/exercisesOperations";
 import CenterText from "@/src/components/CenterText";
 import { styles } from "../styles.js";
 import ChangeApproach from "@/src/modules/changeApproach";
@@ -18,14 +18,16 @@ const NumberOfApproachesScreen = () => {
   const { t } = useTranslation();
 
   const oldExercise = useSelector((state) => state.exercises.exercises);
+  console.log("oldExercise", oldExercise);
+  console.log("oldExercise", oldExercise[exercise][0]);
 
   const [quantity, setQuantity] = useState(
-    oldExercise.length ? oldExercise[exercise][0] : [0, 0, 0]
+    Object.keys(oldExercise).length ? oldExercise[exercise][0] : [0, 0, 0]
   );
   const [exercisesCompleted, setExercisesCompleted] = useState(-1);
   const [exerciseCompleted, setExerciseCompleted] = useState(0);
   const [weight, setWeight] = useState(
-    oldExercise.length ? oldExercise[exercise][1] : [0, 0, 0]
+    Object.keys(oldExercise).length ? oldExercise[exercise][1] : [0, 0, 0]
   );
   const [askWindow, setAskWindow] = useState([false, false, false]);
   const [approach, setApproach] = useState(0);
@@ -49,29 +51,24 @@ const NumberOfApproachesScreen = () => {
 
   const changeApproach = (number: number) => () => {
     setApproach(number);
-    setAskWindow((prev) =>
-      prev.map((value, index) => (index === number ? true : false))
-    );
+    setAskWindow((prev) => prev.map((value, index) => index === number));
   };
 
-  // const memorize = async () => {
-  //   try {
-  //     await dispatch(
-  //       setNumberOfApproaches({
-  //         exercise,
-  //         quantity,
-  //         weight,
-  //       })
-  //     );
+  const memorize = async () => {
+    try {
+      await dispatch(
+        setNumberOfApproaches({
+          exercise,
+          quantity,
+          weight,
+        })
+      );
 
-  //     // navigation.navigate(-1);
-  //   } catch (error) {
-  //     console.error(error);
-  //   }
-  // };
-
-  const buttons = [{}, {}, {}];
-  // focus: onFocusButton,
+      navigation.goBack();
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   return (
     <View style={{ paddingTop: 100 }}>
@@ -85,15 +82,18 @@ const NumberOfApproachesScreen = () => {
           styles.center,
         ]}
       >
-        {buttons.map((value, index) => {
+        {[0, 1, 2].map((index) => {
           return (
             <ApproachButton
               chooseExercise={changeApproach(index)}
-              digit={index}
+              digit={index + 1}
               done={!!(exerciseCompleted >= index + 1)}
               longPress={changeApproach(index)}
               // focus={onFocusButton}
               isFocused={askWindow[index]}
+              quantity={quantity}
+              index={index}
+              disable={quantity ? !!quantity[index] : false}
             />
           );
         })}
@@ -106,10 +106,7 @@ const NumberOfApproachesScreen = () => {
         weight={weight}
         quantity={quantity}
       />
-      <TouchableOpacity
-        style={[styles.center]}
-        // onPress={memorize}
-      >
+      <TouchableOpacity style={[styles.center]} onPress={memorize}>
         <Ionicons name="checkmark-circle-outline" size={38} color="black" />
       </TouchableOpacity>
     </View>

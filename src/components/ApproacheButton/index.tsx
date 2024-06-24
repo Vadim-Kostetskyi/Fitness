@@ -12,6 +12,8 @@ interface ApproachButtonProps {
   focus?: () => void;
   blur?: () => void;
   isFocused?: boolean;
+  quantity: any;
+  index: any;
 }
 
 const ApproachButton: FC<ApproachButtonProps> = ({
@@ -23,7 +25,15 @@ const ApproachButton: FC<ApproachButtonProps> = ({
   focus,
   blur,
   isFocused,
+  quantity,
+  index,
 }) => {
+  console.log(5656);
+
+  console.log(quantity ? quantity[0] : 56);
+  console.log(index);
+  console.log(disable);
+
   return (
     <TouchableOpacity
       style={[
