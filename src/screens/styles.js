@@ -12,7 +12,6 @@ export const styles = StyleSheet.create({
     marginRight: "auto",
   },
   background: {
-    // sta
     justifyContent: "flex-end",
   },
   container: {
