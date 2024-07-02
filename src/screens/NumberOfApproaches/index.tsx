@@ -24,7 +24,7 @@ const NumberOfApproachesScreen = () => {
   const [quantity, setQuantity] = useState(
     Object.keys(oldExercise).length ? oldExercise[exercise][0] : [0, 0, 0]
   );
-  const [exercisesCompleted, setExercisesCompleted] = useState(-1);
+  // const [exercisesCompleted, setExercisesCompleted] = useState(-1);
   const [exerciseCompleted, setExerciseCompleted] = useState(0);
   const [weight, setWeight] = useState(
     Object.keys(oldExercise).length ? oldExercise[exercise][1] : [0, 0, 0]
@@ -42,7 +42,7 @@ const NumberOfApproachesScreen = () => {
     } else if (indexWithZero < 0) {
       setExerciseCompleted(3);
     }
-    setExercisesCompleted(indexWithZero);
+    // setExercisesCompleted(indexWithZero);
     setApproach(indexWithZero !== -1 ? indexWithZero : 2);
   }, []);
 
