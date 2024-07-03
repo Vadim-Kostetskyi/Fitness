@@ -63,6 +63,10 @@ const Exercises: FC<ExercisesProps> = ({
     // commments: true,
     // submit: handleSubmit,
   };
+  console.log(3454535543);
+
+  console.log(memoryExercises);
+
   return (
     <ScrollView style={{ marginTop: 20, paddingTop: 50, marginBottom: 50 }}>
       {exercises.map(
@@ -88,7 +92,6 @@ const Exercises: FC<ExercisesProps> = ({
                     ` ${memoryExercises[el][0].join("/")}\n ${memoryExercises[
                       el
                     ][1].join("/")}кг`}
-                  {/* 50rf */}
                 </Text>
               </View>
             </View>

@@ -22,10 +22,6 @@ const ExerciseScreenLayout: FC<ExerciseScreenLayoutProps> = ({
   firstExerciseImage,
   secondExerciseImage,
 }) => {
-  console.log(123);
-
-  console.log(firstExercise);
-
   const [backgroundImage, setBackgroundImage] = useState(backgroundImg);
   const [firstMuscle, setFirstMuscle] = useState(true);
   const [isAddNewExercise, setIsAddNewExercise] = useState(false);
