@@ -1,11 +1,11 @@
 import { View, ImageBackground } from "react-native";
 import { FC, useState } from "react";
+import { useTranslation } from "react-i18next";
 import Button from "@/src/components/Button";
 import Exercises from "@/src/components/exercises";
 import { activate, deactivate } from "@/src/helpers/focusing";
 import ExerciseNames from "@/src/utils/exerciseNames";
 import { styles } from "./styles";
-import { useTranslation } from "react-i18next";
 
 interface ExerciseScreenLayoutProps {
   backgroundImg: any;
