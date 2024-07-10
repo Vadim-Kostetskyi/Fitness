@@ -5,6 +5,7 @@ import Button from "@/src/components/Button";
 import Exercises from "@/src/components/exercises";
 import { activate, deactivate } from "@/src/helpers/focusing";
 import ExerciseNames from "@/src/utils/exerciseNames";
+import { useSelector } from "react-redux";
 import { styles } from "./styles";
 
 interface ExerciseScreenLayoutProps {
@@ -26,6 +27,8 @@ const ExerciseScreenLayout: FC<ExerciseScreenLayoutProps> = ({
   const [firstMuscle, setFirstMuscle] = useState(true);
   const [isAddNewExercise, setIsAddNewExercise] = useState(false);
   const [exercise, setExercise] = useState("");
+
+  const oldExercise = useSelector((state) => state.exercises.exercises);
 
   const [bicepsExercises, backExercises] = ExerciseNames();
 
@@ -90,6 +93,7 @@ const ExerciseScreenLayout: FC<ExerciseScreenLayoutProps> = ({
             cancelNewExercise={handleCancelNewExercise}
             exercise={exercise}
             setExercise={setExercise}
+            memoryExercises={oldExercise}
           />
         )}
         {!firstMuscle && (

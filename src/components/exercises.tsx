@@ -1,4 +1,4 @@
-import React, { FC, Dispatch } from "react";
+import React, { FC, Dispatch, useState } from "react";
 import {
   View,
   Dimensions,
@@ -7,11 +7,14 @@ import {
   ScrollView,
   KeyboardAvoidingView,
   Platform,
+  Button,
 } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
-import Button from "./Button";
+import Buttonn from "./Button";
 import Input from "./Input/Input";
 import { styles } from "./styles";
+import QuantityIndication from "./QuantityIndication";
+import ExerciseButton from "./ExerciseButton";
 
 const screenWidth = Dimensions.get("window").width;
 const halfScreenWidth = screenWidth / 2;
@@ -40,6 +43,7 @@ const Exercises: FC<ExercisesProps> = ({
   setExercise,
   memoryExercises,
 }) => {
+  const [isSort, setIsSort] = useState(true);
   const exerciseProps = {
     styles: styles.exercise,
     width: exerciseButtonWidth,
@@ -63,6 +67,10 @@ const Exercises: FC<ExercisesProps> = ({
     // commments: true,
     // submit: handleSubmit,
   };
+
+  const onShort = () => {
+    setIsSort(!isSort);
+  };
   console.log(3454535543);
 
   console.log(memoryExercises);
@@ -71,29 +79,26 @@ const Exercises: FC<ExercisesProps> = ({
     <ScrollView style={{ marginTop: 20, paddingTop: 50, marginBottom: 50 }}>
       {exercises.map(
         (el) => (
-          memoryExercises && console.log(memoryExercises[el][1]),
-          console.log(111),
+          console.log(123),
+          console.log(exercises),
           (console.log(el),
           (
             <View key={el} style={{ flexDirection: "row", marginBottom: 50 }}>
-              <Button
+              <Buttonn
                 text={el}
                 {...exerciseProps}
                 navParams={{ exercise: el }}
               />
-              <View
-                style={[
-                  styles.exerciseNumber,
-                  done && { backgroundColor: "#5CFB44", borderWidth: 0 },
-                ]}
-              >
-                <Text style={[{ fontSize: 25, color: "#FFFFFF" }]}>
-                  {memoryExercises &&
-                    ` ${memoryExercises[el][0].join("/")}\n ${memoryExercises[
-                      el
-                    ][1].join("/")}кг`}
-                </Text>
-              </View>
+              {/* {isSort ? (
+                <Button title="" onPress={onShort} />
+              ) : (
+                <QuantityIndication
+                  approaches={memoryExercises && memoryExercises[el][0]}
+                  weights={memoryExercises && memoryExercises[el][1]}
+                  onPress={onShort}
+                />
+              )} */}
+              <ExerciseButton memoryExercises={memoryExercises || []} />
             </View>
           ))
         )

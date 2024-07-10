@@ -39,13 +39,22 @@ export const styles = StyleSheet.create({
     marginRight: 25,
   },
   exerciseNumber: {
+    display: "flex",
+    flexDirection: "row",
     padding: 7,
     alignItems: "center",
-    width: 100,
+    // width: 300,
     height: "100%",
     borderWidth: 1,
     borderRadius: 10,
     borderColor: "#FFFFFF",
+  },
+
+  text: {
+    fontSize: 25,
+    textAlign: "center",
+    color: "#FFFFFF",
+    width: 65,
   },
 
   containerInput: {
