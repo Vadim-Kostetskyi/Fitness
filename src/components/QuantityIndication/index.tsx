@@ -1,6 +1,6 @@
 import { Text, TouchableOpacity, View } from "react-native";
-import { styles } from "../styles";
 import { FC } from "react";
+import { styles } from "../styles";
 
 interface QuantityIndicationProps {
   approaches: string[];

@@ -19,7 +19,7 @@ const NumberOfApproachesScreen = () => {
 
   const oldExercise = useSelector((state) => state.exercises.exercises);
   console.log(2332);
-  
+
   console.log("oldExercise", oldExercise);
   console.log("oldExercise", oldExercise[exercise][0]);
 
@@ -88,14 +88,14 @@ const NumberOfApproachesScreen = () => {
           return (
             <ApproachButton
               chooseExercise={changeApproach(index)}
-              digit={index + 1}
+              digit={`${index + 1}`}
               done={!!(exerciseCompleted >= index + 1)}
               longPress={changeApproach(index)}
               // focus={onFocusButton}
               isFocused={askWindow[index]}
               quantity={quantity}
               index={index}
-              disable={quantity ? !!quantity[index] : false}
+              // disable={quantity ? !!quantity[index] : false}
             />
           );
         })}

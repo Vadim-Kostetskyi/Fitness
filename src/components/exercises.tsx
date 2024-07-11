@@ -89,16 +89,10 @@ const Exercises: FC<ExercisesProps> = ({
                 {...exerciseProps}
                 navParams={{ exercise: el }}
               />
-              {/* {isSort ? (
-                <Button title="" onPress={onShort} />
-              ) : (
-                <QuantityIndication
-                  approaches={memoryExercises && memoryExercises[el][0]}
-                  weights={memoryExercises && memoryExercises[el][1]}
-                  onPress={onShort}
-                />
-              )} */}
-              <ExerciseButton memoryExercises={memoryExercises || []} />
+              <ExerciseButton
+                memoryExercises={memoryExercises || []}
+                exercise={el}
+              />
             </View>
           ))
         )

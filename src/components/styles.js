@@ -78,22 +78,4 @@ export const styles = StyleSheet.create({
 
     backgroundColor: "rgb(246, 246, 246)",
   },
-
-  //NumberOfApproachesScreen
-  exerciseName: {
-    width: halfScreenWidth,
-    // justifyContent: "center",
-    // alignItems: "center",
-    padding: 5,
-    marginBottom: 35,
-    borderRadius: 10,
-    backgroundColor: "red",
-  },
-  approach: {
-    justifyContent: "center",
-    width: 40,
-    height: 40,
-    backgroundColor: "red",
-    borderRadius: 10,
-  },
 });

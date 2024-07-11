@@ -23,17 +23,19 @@ const ChangeApproach: FC<ChangeApproachProps> = ({
 }) => {
   const { t } = useTranslation();
 
-  const add = (
-    set: Dispatch<React.SetStateAction<[number, number, number]>>,
-    number: number
-  ) => {
-    set(
-      (prev) =>
-        prev.map((value, index) =>
-          index === approach ? value + number : value
-        ) as [number, number, number]
-    );
-  };
+  const add =
+    (
+      set: Dispatch<React.SetStateAction<[number, number, number]>>,
+      number: number
+    ) =>
+    () => {
+      set(
+        (prev) =>
+          prev.map((value, index) =>
+            index === approach ? value + number : value
+          ) as [number, number, number]
+      );
+    };
 
   const changeWeight = (amount: number) => {
     setWeight(
@@ -61,19 +63,19 @@ const ChangeApproach: FC<ChangeApproachProps> = ({
       />
       <View style={{ flexDirection: "row", marginBottom: 15 }}>
         <ApproachButton
-          func={() => add(setQuantity, -10)}
-          text={"-10"}
+          add={add(setQuantity, -10)}
+          digit={"-10"}
           disable={quantity[approach] < 10}
         />
-        <ApproachButton func={() => add(setQuantity, 10)} text={"+10"} />
+        <ApproachButton add={add(setQuantity, 10)} digit={"+10"} />
       </View>
       <View style={{ flexDirection: "row", marginBottom: 15 }}>
         <ApproachButton
-          func={() => add(setQuantity, -50)}
-          text={"-50"}
+          add={add(setQuantity, -50)}
+          digit={"-50"}
           disable={quantity[approach] < 50}
         />
-        <ApproachButton func={() => add(setQuantity, 50)} text={"+50"} />
+        <ApproachButton add={add(setQuantity, 50)} digit={"+50"} />
       </View>
       <SelectNumberWithArrows
         title={t("weight")}

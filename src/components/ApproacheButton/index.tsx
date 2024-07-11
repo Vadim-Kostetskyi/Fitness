@@ -1,11 +1,10 @@
 import { TouchableOpacity, Text } from "react-native";
-
-import { styles } from "../styles";
-import { FC } from "react";
+import { Dispatch, FC } from "react";
+import { styles } from "./styles";
 
 interface ApproachButtonProps {
   chooseExercise: () => void;
-  digit: number;
+  digit: string;
   disable?: boolean;
   done?: boolean;
   longPress?: () => void;
@@ -14,6 +13,7 @@ interface ApproachButtonProps {
   isFocused?: boolean;
   quantity: any;
   index: any;
+  add?: () => void;
 }
 
 const ApproachButton: FC<ApproachButtonProps> = ({
@@ -27,29 +27,27 @@ const ApproachButton: FC<ApproachButtonProps> = ({
   isFocused,
   quantity,
   index,
+  add,
 }) => {
   console.log(5656);
 
-  console.log(quantity ? quantity[0] : 56);
-  console.log(index);
-  console.log(disable);
+  console.log("digit", digit);
 
   return (
     <TouchableOpacity
       style={[
         styles.approach,
-        styles.center,
-        done && { backgroundColor: "#387205" },
-        isFocused && { borderColor: "red", borderWidth: 1 },
+        done && styles.done,
+        isFocused && styles.focused,
       ]}
       onFocus={focus}
       onBlur={blur}
       activeOpacity={done ? 1 : 0.2}
-      onPress={done ? undefined : chooseExercise}
+      onPress={add ? add : done ? undefined : chooseExercise}
       disabled={disable}
       onLongPress={done ? longPress : undefined}
     >
-      <Text style={{ textAlign: "center" }}>{digit}</Text>
+      <Text style={styles.text}>{digit}</Text>
     </TouchableOpacity>
   );
 };
