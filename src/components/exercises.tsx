@@ -71,32 +71,18 @@ const Exercises: FC<ExercisesProps> = ({
   const onShort = () => {
     setIsSort(!isSort);
   };
-  console.log(3454535543);
-
-  console.log(memoryExercises);
 
   return (
     <ScrollView style={{ marginTop: 20, paddingTop: 50, marginBottom: 50 }}>
-      {exercises.map(
-        (el) => (
-          console.log(123),
-          console.log(exercises),
-          (console.log(el),
-          (
-            <View key={el} style={{ flexDirection: "row", marginBottom: 50 }}>
-              <Buttonn
-                text={el}
-                {...exerciseProps}
-                navParams={{ exercise: el }}
-              />
-              <ExerciseButton
-                memoryExercises={memoryExercises || []}
-                exercise={el}
-              />
-            </View>
-          ))
-        )
-      )}
+      {exercises.map((el) => (
+        <View key={el} style={{ flexDirection: "row", marginBottom: 50 }}>
+          <Buttonn text={el} {...exerciseProps} navParams={{ exercise: el }} />
+          <ExerciseButton
+            memoryExercises={memoryExercises || []}
+            exercise={el}
+          />
+        </View>
+      ))}
       {isAddNewExercise ? (
         <KeyboardAvoidingView
           behavior={Platform.OS == "ios" ? "padding" : "height"}

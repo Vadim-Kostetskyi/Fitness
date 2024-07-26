@@ -18,10 +18,9 @@ const NumberOfApproachesScreen = () => {
   const { t } = useTranslation();
 
   const oldExercise = useSelector((state) => state.exercises.exercises);
-  console.log(2332);
 
-  console.log("oldExercise", oldExercise);
-  console.log("oldExercise", oldExercise[exercise][0]);
+  // console.log("oldExercise", oldExercise);
+  // console.log("oldExercise", oldExercise[exercise][0]);
 
   const [quantity, setQuantity] = useState(
     Object.keys(oldExercise).length ? oldExercise[exercise][0] : [0, 0, 0]
