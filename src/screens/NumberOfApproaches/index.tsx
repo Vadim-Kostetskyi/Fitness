@@ -41,7 +41,6 @@ const NumberOfApproachesScreen = () => {
       setExerciseCompleted(3);
     }
     // setExercisesCompleted(indexWithZero);
-    // setExercisesCompleted(indexWithZero);
 
     setApproach(indexWithZero !== -1 ? indexWithZero : 2);
   }, []);
