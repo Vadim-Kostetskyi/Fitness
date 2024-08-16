@@ -88,11 +88,11 @@ const NumberOfApproachesScreen = () => {
               digit={`${index + 1}`}
               done={!!(exerciseCompleted >= index + 1)}
               longPress={changeApproach(index)}
-              // focus={onFocusButton} //
+              // focus={onFocusButton} 
               isFocused={askWindow[index]}
               quantity={quantity}
               index={index}
-              disable={quantity ? !!quantity[index] : false} //
+              // disable={quantity ? !!quantity[index] : false}
             />
           );
         })}
