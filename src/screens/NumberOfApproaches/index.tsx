@@ -40,7 +40,7 @@ const NumberOfApproachesScreen = () => {
     } else if (indexWithZero < 0) {
       setExerciseCompleted(3);
     }
-    setExercisesCompleted(indexWithZero); //
+    // setExercisesCompleted(indexWithZero); //
 
     setApproach(indexWithZero !== -1 ? indexWithZero : 2);
   }, []);

@@ -18,7 +18,7 @@ import Input from "../../../components/Input/Input";
 // import { registerDB } from "../redux/auth/authOperations";
 // import { storage } from "../config";
 import { AntDesign } from "@expo/vector-icons";
-import { handleFocus, handleBlur } from "../../../helpers/focusing";
+import { activate, deactivate } from "../../../helpers/focusing";
 import RegisterButton from "@/src/components/LoginRegisterButton";
 
 import { styles } from "./styles";
@@ -45,12 +45,12 @@ const RegisterScreen = () => {
   //   avatar,
   // };
 
-  const handleFocusLogin = handleFocus(setLoginIsFocused);
-  const handleBlurLogin = handleBlur(setLoginIsFocused);
-  const handleFocusMail = handleFocus(setMailIsFocused);
-  const handleBlurMail = handleBlur(setMailIsFocused);
-  const handleFocusPassword = handleFocus(setPasswordIsFocused);
-  const handleBlurPassword = handleBlur(setPasswordIsFocused);
+  const handleFocusLogin = activate(setLoginIsFocused);
+  const handleBlurLogin = deactivate(setLoginIsFocused);
+  const handleFocusMail = activate(setMailIsFocused);
+  const handleBlurMail = deactivate(setMailIsFocused);
+  const handleFocusPassword = activate(setPasswordIsFocused);
+  const handleBlurPassword = deactivate(setPasswordIsFocused);
 
   const props = [
     {

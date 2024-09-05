@@ -89,7 +89,7 @@ const Exercises: FC<ExercisesProps> = ({
           style={{ width: "100%" }}
         >
           <View style={{ flexDirection: "row", marginBottom: 100 }}>
-            <Input {...props} />
+            {/* <Input {...props} /> */}
           </View>
         </KeyboardAvoidingView>
       ) : (

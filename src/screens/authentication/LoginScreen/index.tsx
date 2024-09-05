@@ -14,7 +14,7 @@ import { useNavigation, useRoute } from "@react-navigation/native";
 import { useFonts } from "expo-font";
 import Input from "@/src/components/Input/Input";
 import { loginDB } from "@/src/redux/auth/authOperations";
-import { handleFocus, handleBlur } from "@/src/helpers/focusing";
+import { activate, deactivate } from "@/src/helpers/focusing";
 import LoginButton from "@/src/components/LoginRegisterButton";
 import { styles } from "./styles";
 import { StackNavigation } from "@/src/Router";
@@ -41,10 +41,10 @@ const LoginScreen = () => {
     password,
   };
 
-  const handleFocusMail = handleFocus(setMailIsFocused);
-  const handleBlurMail = handleBlur(setMailIsFocused);
-  const handleFocusPassword = handleFocus(setPasswordIsFocused);
-  const handleBlurPassword = handleBlur(setPasswordIsFocused);
+  const handleFocusMail = activate(setMailIsFocused);
+  const handleBlurMail = deactivate(setMailIsFocused);
+  const handleFocusPassword = activate(setPasswordIsFocused);
+  const handleBlurPassword = deactivate(setPasswordIsFocused);
 
   const props = [
     {

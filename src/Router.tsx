@@ -35,7 +35,7 @@ interface RouterProps {
 const Router: FC<RouterProps> = ({ isAuth }) => {
   return (
     <Stack.Navigator>
-      {!isAuth ? (
+      {isAuth ? (
         <>
           <Stack.Screen name="Home" component={HomeScreen} />
           <Stack.Screen name="Training" component={TrainingScreen} />
