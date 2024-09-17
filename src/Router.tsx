@@ -41,7 +41,6 @@ const Router: FC<RouterProps> = ({ isAuth }) => {
           <Stack.Screen name="Training" component={TrainingScreen} />
           <Stack.Screen name="BicepsBack" component={BicepsBackScreen} />
           <Stack.Screen name="TricepsChest" component={TricepsChestScreen} />
-
           <Stack.Screen
             name="NumberOfApproaches"
             component={NumberOfApproachesScreen}
